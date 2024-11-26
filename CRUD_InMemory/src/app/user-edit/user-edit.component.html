@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <header class="card-header">
+                    <a href="" class="float-right btn btn-outline-primary mt-1"> new User </a>
+                </header>
+                <article class="card-body">
+                    <form [formGroup]="userform" (ngSubmit)="submit()">
+                        <div class="formGroup">
+                            <label for="Id">Id</label>
+                            <input type="text"  formControlName="id" />
+                        </div>
+                        <div class="formGroup">
+                            <label for="firstname">Firstname</label>
+                            <input type="text" formControlName="firstname" />
+                            <div *ngIf="Firstname.touched && !Firstname.valid" class="alert alert-danger">
+                                <p *ngIf="Firstname.hasError('required')">Firstname is required</p>
+                                <p *ngIf="Firstname.hasError('minlength')">minimum length of firstname is 3</p>
+                            </div>
+                        </div>
+                        <div class="formGroup">
+                            <label for="lastname">Lastname</label>
+                            <input type="text" formControlName="lastname" />
+                        </div>
+                        <div class="formGroup">
+                            <label for="email">Email</label>
+                            <input type="text" formControlName="email" />
+                        </div>
+                        <div class="formGroup">
+                            <label for="profession">Profession</label>
+                            <input type="text" formControlName="profession" />
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary" >Submit</button>
+                        </div>
+                    </form>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
